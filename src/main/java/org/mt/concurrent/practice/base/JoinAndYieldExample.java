@@ -31,6 +31,7 @@ public class JoinAndYieldExample {
         AddThread addThread = new AddThread();
         addThread.start();
         addThread.join();
+//        addThread.yield(); 大部分情况下没啥用,会让出cpu,但是同时也会重新加入cpu的竞争
         System.out.println(i);
     }
 
@@ -46,6 +47,9 @@ public class JoinAndYieldExample {
      * while (isAlive()) {
      *     wait(0);
      * }
+     *
+     * 总结一下就是执行线程wait在被等待线程对象上, 因此源码中注解建议我们在实际使用wait方法时最好不好对对线程对象进行wait,
+     * 可能会造成一些和系统api的冲突
      *
      * 但是addThread对象在执行完之后是怎么发送的notifyAll消息呢?
      *
