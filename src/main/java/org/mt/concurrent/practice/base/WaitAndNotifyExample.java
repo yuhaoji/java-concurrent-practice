@@ -67,6 +67,11 @@ public class WaitAndNotifyExample {
         主要结论:
         Object.wait() 和 Thread.sleep() 都可以使线程等待若干时间, 除了wait可以被唤醒外, 另一个主要区别是wait方法会
         释放目标对象的锁,而sleep方法不会释放任何资源
+
+        线程的几种状态:
+        WAITING 是在线程执行了wait方法后所处的状态, 同理, 执行join方法也会使线程处于这种状态
+        BLOCKED 是线程在竞争锁进入同步代码块时的状态,包括等待锁进入同步代码块, 以及线程在wait之后被notify唤醒之后等待锁的阶段
+        RUNNABLE 是jvm中运行的线程状态,但是可能由于竞争cpu资源而暂时闲置
      */
 
 }
