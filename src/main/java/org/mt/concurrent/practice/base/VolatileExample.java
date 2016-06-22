@@ -21,7 +21,7 @@ public class VolatileExample {
     private static volatile int number;
 
 
-    private static class ReadThread extends Thread{
+    private static class ReadThread extends Thread {
         @Override
         public void run() {
             while (!ready) {

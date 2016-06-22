@@ -16,7 +16,7 @@ package org.mt.concurrent.practice.thread;
 
 public class DaemonTreadExample {
 
-    public static class DaemonThread extends Thread{
+    public static class DaemonThread extends Thread {
         @Override
         public void run() {
             while (true) {

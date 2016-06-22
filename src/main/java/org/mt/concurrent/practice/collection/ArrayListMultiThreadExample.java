@@ -22,7 +22,7 @@ public class ArrayListMultiThreadExample {
 
     private static class AddThread implements Runnable {
         public void run() {
-            for(int i = 0 ;i < 100000;i++) {
+            for (int i = 0; i < 100000; i++) {
                 list.add(i);
             }
         }

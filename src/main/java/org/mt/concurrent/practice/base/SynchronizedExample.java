@@ -14,7 +14,7 @@ add by haoji.yu 16/6/7
 */
 package org.mt.concurrent.practice.base;
 
-public class SynchronizedExample implements Runnable{
+public class SynchronizedExample implements Runnable {
 
     static SynchronizedExample synchronizedExample = new SynchronizedExample();
 
@@ -51,7 +51,7 @@ public class SynchronizedExample implements Runnable{
      */
 
     public void run() {
-        for (int j =0 ;j<10000000;j++) {
+        for (int j = 0; j < 10000000; j++) {
             increase();
         }
     }

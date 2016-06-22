@@ -22,17 +22,17 @@ public class TimeLock implements Runnable {
     public static ReentrantLock lock = new ReentrantLock();
 
     public void run() {
-        try{
+        try {
             if (lock.tryLock(5, TimeUnit.SECONDS)) {
                 System.out.println(Thread.currentThread().getName() + " is sleep");
                 Thread.sleep(6000);
 
-            }else{
+            } else {
                 System.out.println("get lock failed");
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (lock.isHeldByCurrentThread()) {
                 lock.unlock();
             }

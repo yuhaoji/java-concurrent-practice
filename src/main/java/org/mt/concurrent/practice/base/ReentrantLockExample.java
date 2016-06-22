@@ -23,13 +23,13 @@ public class ReentrantLockExample implements Runnable {
     public static volatile int i = 0;
 
     public void run() {
-        for (int j = 0 ; j<10000000;j++) {
+        for (int j = 0; j < 10000000; j++) {
             //一个线程允许两次获得同一把重入锁,但获取之后也要进行相应次数的解锁
             reentrantLock.lock();
             //reentrantLock.lock();
             try {
                 i++;
-            }finally {
+            } finally {
                 //为何必须在finally子句中释放锁?
                 reentrantLock.unlock();
                 //reentrantLock.unlock();
@@ -47,4 +47,8 @@ public class ReentrantLockExample implements Runnable {
         t2.join();
         System.out.println(i);
     }
+
+    /*
+        比较synchronize而言,ReentrantLock更新灵活, 锁的获取和释放完全由程序控制,而且可以响应中断, 或是限时等待锁等,可以多加使用
+     */
 }

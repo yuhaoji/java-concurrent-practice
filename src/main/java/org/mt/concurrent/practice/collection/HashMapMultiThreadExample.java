@@ -29,7 +29,7 @@ public class HashMapMultiThreadExample {
         }
 
         public void run() {
-            for(int i = start ; i < 100000;i+=2) {
+            for (int i = start; i < 100000; i += 2) {
                 map.put(Integer.toString(i), Integer.toBinaryString(i));
             }
         }

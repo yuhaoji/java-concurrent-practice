@@ -30,7 +30,7 @@ public class ReentrantLockConditionExample implements Runnable {
             System.out.println("Thread is going on");
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             lock.unlock();
         }
     }

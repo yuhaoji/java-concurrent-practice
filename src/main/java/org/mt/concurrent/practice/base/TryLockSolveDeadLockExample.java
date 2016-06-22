@@ -16,7 +16,7 @@ package org.mt.concurrent.practice.base;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-public class TryLockSolveDeadLockExample implements  Runnable{
+public class TryLockSolveDeadLockExample implements Runnable {
 
     public static ReentrantLock lock1 = new ReentrantLock();
 
