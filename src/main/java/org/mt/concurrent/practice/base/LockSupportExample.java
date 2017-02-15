@@ -43,10 +43,12 @@ public class LockSupportExample {
         t1.start();
         Thread.sleep(100);
         t2.start();
+        Thread.sleep(50000);
         LockSupport.unpark(t1);
         LockSupport.unpark(t2);
         t1.join();
         t2.join();
+        System.out.println("end in main" );
     }
 
     /*
@@ -58,6 +60,11 @@ public class LockSupportExample {
         2. 当unpark函数在park函数执行之后执行,则park函数在unpark函数执行完之后返回
 
         这个特点相较于Thread的suspend和resume就要好很多, 如果resume不小心在suspend之前执行了, 则线程可能一直阻塞
+
+        对比通过wait和notify来实现线程间同步,更加灵活,因为当有多个线程等待在一个Object锁上时,notify只能随机唤醒一个
+        而通过park和unpark,则可以精确地控制唤醒哪个线程
+
+        在通过park挂起的时候,线程不会放弃自己通过synchronized持有的锁
      */
 
 }
